@@ -3,7 +3,7 @@
  * @Author: 曹俊
  * @Date: 2022-11-11 20:23:31
  * @LastEditors: 曹俊
- * @LastEditTime: 2023-03-16 15:14:36
+ * @LastEditTime: 2023-03-16 22:59:27
 -->
 
 # 自我介绍
@@ -45,17 +45,6 @@ Node.js 的主要优势包括：
   - Node.js 能够应对哪些类型的任务？
   - Node.js 不适合 CPU 密集型任务，但适合处理 I/O 密集型任务，比如网络通信、文件操作等等。
 
-  - 什么是 NPM？
-NPM（Node Package Manager）是 Node.js 的包管理工具，它允许开发者共享、安装和管理代码包。
-
-  - 什么是回调函数？
-回调函数是一种常用的编程模式，通常用于异步操作完成后的数据处理。在 Node.js 中，通过回调函数来处理异步操作是常见的做法。
-
-  - 什么是模块？
-模块是 Node.js 中对于代码组织的单位，一个模块可以被另一个模块所依赖，也可以依赖其他模块。Node.js 中实现模块化的方式是通过 CommonJS 规范。
-
-  - Node.js 中的事件是什么？
-Node.js 中的事件是事件驱动模型的基础。通过 events 模块，Node.js 中可以自定义事件和事件监听器，并通过事件来触发相应的处理逻辑。
 - ES Module（ESM）和CommonJS（CJS）的区别
   ES Module（ESM）和CommonJS（CJS）都是用于 JavaScript 模块化的规范，用于组织和管理 JavaScript 代码，但它们有以下几点区别：
 
@@ -323,9 +312,9 @@ const result = identity('hello');
 
 #### 过程：
 
-- 首先创建了一个新的空对象
-- 设置原型，将对象的原型设置为函数的 prototype 对象。
-- 让函数的 this 指向这个对象，执行构造函数的代码（为这个新对象添加属性）
+- 创建一个空对象，作为实例对象。
+- 将实例对象的原型指向构造函数的 prototype 属性
+- 将构造函数的 this 指向实例对象，执行构造函数的代码（为这个新对象添加属性）
 - 判断函数的返回值类型，如果是值类型，返回创建的对象。如果是引用类型，就返回这个引用类型的对象。
 
 #### 实现：
@@ -388,6 +377,13 @@ function objectFactory() {
 ### Promise 是一个构造函数，接收一个函数作为参数，返回一个 Promise 实例。一个 Promise 实例有三种状态，分别是 pending、resolved 和 rejected，分别代表了进行中、已成功和已失败。实例的状态只能由 pending 转变 resolved 或者 rejected 状态，并且状态一经改变，就凝固了，无法再被改变了。状态的改变是通过 resolve() 和 reject() 函数来实现的，我们可以在异步操作结束后调用这两个函数改变 Promise 实例的状态，它的原型上定义了一个 then 方法，使用这个 then 方法可以为两个状态的改变注册回调函数。这个回调函数属于微任务，会在本轮事件循环的末尾执行。
 
 # cookie，sessionStorage 和 sessionStorage 的联系和区别
+- 作用范围不同：cookie 用于在客户端和服务端之间传递数据；localStorage 和 sessionStorage 用于在客户端持久化存储数据，分别在全部会话和当前会话中有效。
+
+- 存储大小不同：cookie 的大小和数量在不同浏览器中有限制；localStorage 和 sessionStorage 的大小也有限制，在一般情况下为 5MB 左右。
+
+- 数据存储方式不同：cookie 可以被客户端和服务端读取和修改；localStorage 和 sessionStorage 只能在客户端中使用，不会被发送到服务端。
+
+- 生命周期不同：cookie 可以设置过期时间，可以在一定时间内保留数据；localStorage 永久保存数据，除非用户手动删除或者清除浏览器缓存；sessionStorage 只在当前会话中有效，在关闭浏览器或者标签页时会被清除。
 
 # for in 和 for of 的区别
 
