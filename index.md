@@ -3,7 +3,7 @@
  * @Author: 曹俊
  * @Date: 2022-11-11 20:23:31
  * @LastEditors: 曹俊
- * @LastEditTime: 2023-03-16 14:45:16
+ * @LastEditTime: 2023-03-16 15:05:46
 -->
 
 # 自我介绍
@@ -83,6 +83,65 @@ Node.js 中的事件是事件驱动模型的基础。通过 events 模块，Node
   - 持续集成：持续集成可以通过自动化的方式不断集成和测试代码的更新，从而提供更加及时的反馈和更高的代码质量。
 
   综上所述，前端工程化是一种将前端开发流程自动化、标准化的方法，能够提高开发效率、代码质量和团队协作能力。
+- TypeScript 是什么？它有什么优点？
+  TypeScript 是一种由微软开发的静态类型检查的编程语言，它是 JavaScript 的超集，可以编译成纯 JavaScript。TypeScript 有以下优点：
+
+  - 提供了静态类型检查，可以在编译时发现类型错误，减少运行时错误。
+
+  - 支持 ES6+ 的语法，可以使用最新的 JavaScript 特性。
+
+  - 增强了代码可读性和可维护性，可以使用接口、泛型、枚举等特性。
+
+  - 提供了更好的编辑器支持，可以实现智能提示、自动补全等功能。
+
+- TypeScript 中的接口是什么？它有什么作用？
+ 接口（Interface）是 TypeScript 中的一个重要概念，用于描述对象的形状。可以使用接口来定义对象的属性和方法，从而提高代码可读性和可维护性。例如：
+```ts
+interface Person {
+  name: string;
+  age: number;
+  sayHello: () => void;
+}
+
+const person: Person = {
+  name: 'Alice',
+  age: 20,
+  sayHello() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+};
+```
+- TypeScript 中的泛型是什么？它有什么作用？
+
+泛型（Generics）是 TypeScript 中的一个重要特性，可以在定义函数、类、接口等时使用，用于增强代码的复用性和灵活性。泛型可以让函数或类可以接受任意类型的参数，从而实现更加通用的代码。例如：
+```ts
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+const result = identity('hello');
+```
+- TypeScript 中的类是什么？它有什么特点？
+
+  类（Class）是 TypeScript 中的一个重要概念，用于描述面向对象的编程模型。类可以包含属性、方法、构造函数等，可以继承其他类，实现接口等。类的特点包括：
+
+  - 支持公共、私有、受保护和只读的属性。
+
+  - 支持静态属性和静态方法。
+
+  - 支持继承和多态。
+
+  - 支持实现接口。
+
+- TypeScript 中的模块是什么？它有什么作用？
+
+  模块（Module）是 TypeScript 中的一个重要概念，用于组织代码，将代码分割为可重用的单元。模块可以导出和导入变量、类、函数等，从而实现更好的代码可维护性和可复用性。模块的特点包括：
+
+  - 可以将代码分割为多个文件，避免代码冗长和混乱。
+
+  - 可以使用 import 和 export 关键字导入和导出模块。
+
+  - 可以使用命名空间（Namespace）来组织代码。
 
 # Vite 是一个基于 ES modules 的构建工具，它的快速主要有以下几个原因：
 
