@@ -3,7 +3,7 @@
  * @Author: 曹俊
  * @Date: 2022-11-11 20:23:31
  * @LastEditors: 曹俊
- * @LastEditTime: 2023-03-16 22:59:27
+ * @LastEditTime: 2023-03-16 23:22:57
 -->
 
 # 自我介绍
@@ -416,7 +416,23 @@ function objectFactory() {
 #### 类数组是 JavaScript 中一种特殊的对象。它们表现出非常类似数组的特征，但由于它们不适合使用标准 array 方法，因此可以说它们不是真正的数组。类数组具有 “length” 属性，并且可以使用索引来访问各个元素。例如：DOM NodeLists 和 arguments 变量都可以认为是类数组。但是由于它们不使用 Array.prototype上的方法，因此无法使用常见的数组方法，例如 map()、forEach()、push() 等。
 #### 使用 Array.from()，Array.prototype.slice.call()将类数组转化为数组
 
-# 遍历对象和数组
+# 遍历对象的方法
+ES6 一共有 5 种方法可以遍历对象的属性。
+- for...in：for...in循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）。
+- Object.keys(obj)：返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+- Object.getOwnPropertyNames(obj)：返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+- Object.getOwnPropertySymbols(obj)：返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+- Reflect.ownKeys()：返回一个数组，包含对象自身的（不含继承的）所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
+#### 以上的 5 种方法遍历对象的键名，都遵守同样的属性遍历的次序规则。
+- 首先遍历所有数值键，按照数值升序排列。
+- 其次遍历所有字符串键，按照加入时间升序排列。
+- 最后遍历所有 Symbol 键，按照加入时间升序排列。
+
+```js
+Reflect.ownKeys({ [Symbol()]:0, b:0, 10:0, 2:0, a:0 })
+// ['2', '10', 'b', 'a', Symbol()]
+```
+上面代码中，Reflect.ownKeys方法返回一个数组，包含了参数对象的所有属性。这个数组的属性次序是这样的，首先是数值属性2和10，其次是字符串属性b和a，最后是 Symbol 属性。
 
 # 数组的常用方法以及返回值
 
